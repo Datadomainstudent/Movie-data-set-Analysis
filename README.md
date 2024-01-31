@@ -1,1 +1,2 @@
 # Movie-data-set-Analysis
+Developed and implemented a MySQL database for a movie dataset, ensuring optimal storage and retrieval. Implemented ETL processes for data cleaning, enhancing accuracy. Integrated Microsoft PowerBI for interactive dashboards, providing stakeholders with actionable insights. Leveraged SQL for advanced analytics, contributing to improved decision-making and business performance.
