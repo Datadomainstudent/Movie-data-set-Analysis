@@ -1,0 +1,47 @@
+Q1 Count the number of characters (excluding spaces) for each actor and return the first 10:
+SELECT 
+    LEFT(actor_name, 10) AS actor_name,
+    LENGTH(REPLACE(actor_name, ' ', '')) AS name_length
+FROM actors
+LIMIT 10;
+
+
+Q2 List all Oscar awardees with their full names and name lengths:
+SELECT 
+    CONCAT(first_name, ' ', last_name) AS full_name,
+    LENGTH(CONCAT(first_name, last_name)) AS name_length
+FROM actors
+WHERE oscar_award = 'Yes';
+
+
+Q3 Find actors who have acted in the film 'Frost Head':
+SELECT 
+    DISTINCT a.actor_name
+FROM actors a
+JOIN film_actors fa ON a.actor_id = fa.actor_id
+JOIN films f ON f.film_id = fa.film_id
+WHERE f.film_title = 'Frost Head';
+
+
+Q4 Pull all the films acted by the actor 'Will Wilson':
+SELECT 
+    f.film_title
+FROM actors a
+JOIN film_actors fa ON a.actor_id = fa.actor_id
+JOIN films f ON f.film_id = fa.film_id
+WHERE a.actor_name = 'Will Wilson';
+
+
+Q5 Pull all films rented and returned in the month of May:
+SELECT 
+    f.film_title
+FROM rentals r
+JOIN films f ON r.film_id = f.film_id
+WHERE MONTH(r.rental_date) = 5 AND MONTH(r.return_date) = 5;
+
+
+Q6 Pull all films with 'Comedy' category:
+SELECT 
+    film_title
+FROM films
+WHERE category = 'Comedy';
